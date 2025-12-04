@@ -9,15 +9,15 @@
 </head>
 <body class="bg-gray-100 text-gray-800 text-xl">
 
-    <nav class="bg-white shadow-lg fixed top-1 w-full rounded-lg">
+    <nav class="bg-white shadow-lg fixed top-0 w-full rounded-lg">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#home" class="text-2xl font-bold text-blue-600">Global<br>Minds</a>
             <ul class="flex space-x-8 items-center">
-                <li><a href="#about" class="text-gray-600 hover:text-blue-500">About</a></li>
-                <li><a href="#us" class="text-gray-600 hover:text-blue-500">Us</a></li>
-                <li><a href="#advocacy" class="text-gray-600 hover:text-blue-500">Advocacy</a></li>
-                <li><a href="pages/learn_more.html" class="text-gray-600 hover:text-blue-500">Learn More</a></li>
-                <li><a href="pages/contact_us.html" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Contact Us</a></li>
+                <li><a href="#about" class="text-gray-600 hover:text-blue-500 transition transform hover:-translate-y-1">About</a></li>
+                <li><a href="#us" class="text-gray-600 hover:text-blue-500 transition transform hover:-translate-y-1">Us</a></li>
+                <li><a href="#advocacy" class="text-gray-600 hover:text-blue-500 transition transform hover:-translate-y-1">Advocacy</a></li>
+                <li><a href="pages/learn_more.html" class="text-gray-600 hover:text-blue-500 transition transform hover:-translate-y-1">Learn More</a></li>
+                <li><a href="pages/contact_us.html" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition transform hover:-translate-y-1">Contact Us</a></li>
             </ul>
         </div>
     </nav>
@@ -202,5 +202,22 @@
         <p>&copy; 2025 Global Minds. All Rights Reserved.</p>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const links = document.querySelectorAll('a[href^="#"]');
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
